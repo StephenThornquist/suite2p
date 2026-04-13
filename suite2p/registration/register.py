@@ -802,7 +802,7 @@ def assign_reg_io(f_reg, f_raw=None, f_reg_chan2=None,
     """
     if f_reg_chan2 is None or not align_by_chan2:
         f_align_in = f_reg if f_raw is None else f_raw
-        f_alt_in = f_reg_chan2 if f_raw_chan2 is Noneelse f_raw_chan2
+        f_alt_in = f_reg_chan2 if f_raw_chan2 is None else f_raw_chan2
         f_align_out = f_reg if f_raw is not None else None
         f_alt_out = f_reg_chan2 if f_raw_chan2 is not None else None
     else:
