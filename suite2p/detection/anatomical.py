@@ -81,7 +81,7 @@ def mask_centers(masks):
 
 
 def roi_detect(mproj, diameter=None, settings=None,
-               pretrained_model=None, device=torch.device("cuda"), chan2=False):
+               pretrained_model=None, device=torch.device('cpu'), chan2=False):
     """
     Detect ROIs in an image using Cellpose.
 
@@ -100,7 +100,7 @@ def roi_detect(mproj, diameter=None, settings=None,
         "cellprob_threshold", and "flow_threshold" for Cellpose.
     pretrained_model : str, optional
         Name of the Cellpose pretrained model. Defaults to "cpsam".
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device, used for GPU cache cleanup after detection.
     chan2 : bool, optional (default False)
         If True, use "chan2_params" from settings instead of "params".
@@ -201,7 +201,7 @@ def masks_to_stats(masks, weights):
 
 def select_rois(mean_img, max_proj, settings, 
                 diameter=[12., 12.],
-                device=torch.device("cuda")):
+                device=torch.device('cpu')):
     """
     Find ROIs in static images using Cellpose anatomical detection.
 
@@ -220,7 +220,7 @@ def select_rois(mean_img, max_proj, settings,
         which image to segment) and optionally "highpass_spatial" (float).
     diameter : list of float, optional (default [12., 12.])
         Expected cell diameter [dy, dx] in pixels.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for Cellpose and GPU cache cleanup.
 
     Returns

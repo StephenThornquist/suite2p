@@ -223,7 +223,7 @@ SETTINGS = {
         "type": str,
         "min": None,
         "max": None,
-        "default": "cuda",
+        "default": "cpu",
         "description": "Torch device using GPU ('cuda') or CPU ('cpu').",
     },
     "tau": {

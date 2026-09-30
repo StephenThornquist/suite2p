@@ -158,7 +158,7 @@ def intensity_ratio(mimg2, stats, chan2_threshold=0.65, inner_neuropil_radius=2,
     return np.stack((redcell, redprob), axis=-1)
 
 
-def cellpose_overlap(stats, mimg2, diameter, chan2_threshold=0.25, device=torch.device("cuda"),
+def cellpose_overlap(stats, mimg2, diameter, chan2_threshold=0.25, device=torch.device('cpu'),
                      settings=None):
     """
     Classify cells as red by computing overlap with Cellpose-detected masks.
@@ -177,7 +177,7 @@ def cellpose_overlap(stats, mimg2, diameter, chan2_threshold=0.25, device=torch.
         Expected cell diameter in pixels for Cellpose detection.
     chan2_threshold : float, optional (default 0.25)
         IOU threshold for red cell classification.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for Cellpose and GPU cache cleanup.
     settings : dict, optional
         Detection settings dictionary passed to Cellpose.
@@ -212,7 +212,7 @@ def cellpose_overlap(stats, mimg2, diameter, chan2_threshold=0.25, device=torch.
 
 
 def detect(meanImg, meanImg_chan2, stats, diameter, cellpose_chan2=False, chan2_threshold=0.65,
-           device=torch.device("cuda"), settings=None, inner_neuropil_radius=2,
+           device=torch.device('cpu'), settings=None, inner_neuropil_radius=2,
            min_neuropil_pixels=350):
     """
     Identify red cells using the second channel (e.g. tdTomato).
@@ -237,7 +237,7 @@ def detect(meanImg, meanImg_chan2, stats, diameter, cellpose_chan2=False, chan2_
     chan2_threshold : float, optional (default 0.65)
         Threshold for red cell classification. Meaning depends on method:
         IOU threshold for Cellpose, intensity ratio for fallback.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for Cellpose and GPU cache cleanup.
     settings : dict, optional
         Detection settings dictionary passed to Cellpose.

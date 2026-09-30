@@ -21,7 +21,7 @@ from .registration import zalign
 
 def pipeline(save_path, f_reg, f_raw=None, f_reg_chan2=None, f_raw_chan2=None,
              run_registration=True, settings=default_settings(), badframes=None, stat=None,
-             device=torch.device("cuda"), Zstack=None):
+             device=torch.device('cpu'), Zstack=None):
     """
     Run suite2p processing pipeline on an array or BinaryFile.
 
@@ -52,7 +52,7 @@ def pipeline(save_path, f_reg, f_raw=None, f_reg_chan2=None, f_raw_chan2=None,
         shape (n_frames,).
     stat : numpy.ndarray, optional (default None)
         Pre-defined ROI masks. If provided, detection is skipped.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for performing operations.
     Zstack : list, optional (default None)
         Dense Z-stack used for Z-position estimation, via 

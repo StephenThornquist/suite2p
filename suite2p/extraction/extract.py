@@ -18,7 +18,7 @@ from .. import default_settings
 from ..logger import TqdmToLogger
 
 def extract_traces(f_in, cell_masks, neuropil_masks, batch_size=500, 
-                    device = torch.device("cuda")):
+                    device = torch.device('cpu')):
     """
     Extract fluorescence traces using cell and neuropil masks.
 
@@ -37,7 +37,7 @@ def extract_traces(f_in, cell_masks, neuropil_masks, batch_size=500,
         mask of one ROI.
     batch_size : int, optional (default 500)
         Number of frames processed per batch.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for performing operations.
 
     Returns
@@ -98,7 +98,7 @@ def extract_traces(f_in, cell_masks, neuropil_masks, batch_size=500,
 
 def extraction_wrapper(stat, f_reg, f_reg_chan2=None, cell_masks=None,
                        neuropil_masks=None, settings=default_settings()["extraction"],
-                        device = torch.device("cuda")):
+                        device = torch.device('cpu')):
     """
     Main fluorescence extraction function.
 
@@ -120,7 +120,7 @@ def extraction_wrapper(stat, f_reg, f_reg_chan2=None, cell_masks=None,
         Pre-computed neuropil masks. If None, masks are created from stat.
     settings : dict
         Extraction settings dictionary.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for performing operations.
 
     Returns

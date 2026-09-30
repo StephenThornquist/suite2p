@@ -207,7 +207,7 @@ def baseline_maximin(F, win_baseline, sig_baseline,
         Sampling rate per plane in Hz.
     batch_size : int, optional (default 100)
         Number of neurons processed per batch.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for performing operations.
 
     Returns

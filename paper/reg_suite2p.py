@@ -76,7 +76,7 @@ def example_reg(root):
     regDX = reg_outputs["regDX"]
 
 
-    fr_reg = torch.from_numpy(frand).to(torch.device("cuda"))
+    fr_reg = torch.from_numpy(frand).to(torch.device('cpu'))
     refImg = reg_outputs["refImg"]
     refImg = refImg[-400:,-400:]
     refAndMasks = register.compute_filters_and_norm(refImg)
@@ -138,7 +138,7 @@ def main():
     parser.add_argument("--tfr", type=int, default=500)
     parser.add_argument("--rigid", action="store_true")
     args = parser.parse_args()
-    device=torch.device("cuda")
+    device=torch.device('cpu')
     tfr = args.tfr
     rigid = args.rigid
     root = args.root

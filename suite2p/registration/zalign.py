@@ -11,7 +11,7 @@ from .. import default_settings
 from .register import register_frames
 
 def register_to_zstack(f_align_in, refImgs, nonrigid=False, settings=default_settings()["registration"],
-                       bidiphase=0, device=torch.device("cuda")):
+                       bidiphase=0, device=torch.device('cpu')):
     """
     Register frames to a z-stack of reference images and return the max correlation per z-plane.
 
@@ -32,7 +32,7 @@ def register_to_zstack(f_align_in, refImgs, nonrigid=False, settings=default_set
         maxregshift, smooth_sigma_time, snr_thresh, and maxregshiftNR.
     bidiphase : int, optional (default 0)
         Bidirectional phase offset to correct for bidirectional scanning artifacts.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Device on which to run the registration.
 
     Returns

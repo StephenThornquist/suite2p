@@ -401,7 +401,7 @@ def transform_data(data, nblocks, xblock, yblock, ymax1, xmax1,
         The input images are warped according to the interpolated displacement field.
     """
     n_frames, Ly, Lx = data.shape
-    #device = torch.device("cuda")
+    #device = torch.device('cpu')
     #data = torch.from_numpy(data).to(device).float()
     device = data.device
     ymax1 = ymax1.reshape(-1, *nblocks)

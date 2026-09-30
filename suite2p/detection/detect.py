@@ -105,7 +105,7 @@ def detection_wrapper(f_reg, diameter=[12., 12.], tau=1., fs=30, meanImg_chan2=N
                       yrange=None, xrange=None, badframes=None, mov=None, 
                       preclassify=0., classifier_path=None, 
                       settings=default_settings()["detection"],
-                      device=torch.device("cuda")):
+                      device=torch.device('cpu')):
     """
     Run the full ROI detection pipeline on a registered movie.
 
@@ -144,7 +144,7 @@ def detection_wrapper(f_reg, diameter=[12., 12.], tau=1., fs=30, meanImg_chan2=N
         uses the default user classifier.
     settings : dict, optional
         Detection settings dictionary.
-    device : torch.device, optional (default torch.device("cuda"))
+    device : torch.device, optional (default torch.device('cpu'))
         Torch device for cellpose-based detection.
 
     Returns
